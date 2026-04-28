@@ -1,0 +1,49 @@
+{
+  "name": "Demo Mission Computer",
+  "description": "Demonstration system for mission reliability analysis",
+  "mission": "Control and monitoring during 10-hour mission profile",
+  "lifetime_hours": 5000,
+  "operating_environment": "Ground mobile platform, moderate vibration",
+  "assemblies": [
+    {
+      "name": "Compute Module",
+      "active_time": 10,
+      "passive_time": 2,
+      "rest_time": 12,
+      "redundancy_type": "1oo2_active",
+      "unintended_operation_probability": 0.0001,
+      "components": [
+        {
+          "name": "CPU-A",
+          "critical": true,
+          "lambda_active": 0.00002,
+          "kp": 0.1,
+          "kr": 0.025,
+          "source": "Internal handbook",
+          "notes": ""
+        },
+        {
+          "name": "CPU-B",
+          "critical": true,
+          "lambda_active": 0.00002,
+          "kp": 0.1,
+          "kr": 0.025,
+          "source": "Internal handbook",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "name": "Power Bus",
+      "active_time": 10,
+      "passive_time": 0,
+      "rest_time": 14,
+      "redundancy_type": "1oo1",
+      "unintended_operation_probability": 0.0002,
+      "direct_lambda_active": 0.000012,
+      "source": "Supplier datasheet",
+      "notes": "Treated as direct assembly rate",
+      "components": []
+    }
+  ]
+}
